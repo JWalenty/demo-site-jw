@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <script>
+   <script>
 (function(apiKey){
     (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=o._q||[];
     v=['initialize','identify','updateOptions','pageLoad','track'];for(w=0,x=v.length;w<x;++w)(function(m){
@@ -14,32 +14,25 @@
         // You will need to replace <visitor-id-goes-here> and <account-id-goes-here> with values you use in your app
         // Please use Strings, Numbers, or Bools for value types.
         pendo.initialize({
-            visitor: {
-                id:              <visitor-id-goes-here> // Required if user is logged in
-                // email:        // Recommended if using Pendo Feedback, or NPS Email
-                // full_name:    // Recommended if using Pendo Feedback
-                // role:         // Optional
+visitor: {
+  id:              $user.ID,
+  email:           $user.email,
+  full_name:       $user.full_name,
+  role:            $user.accessLevel,
+  creationDate:    $user.creationDate
+},
 
-                // You can add any additional visitor level key-values here,
-                // as long as it's not one of the above reserved names.
-            },
-
-            account: {
-                id:              <account-id-goes-here> // Highly recommended, required if using Pendo Feedback
-                // name:         // Optional
-                // is_paying:    // Recommended if using Pendo Feedback
-                // monthly_value:// Recommended if using Pendo Feedback
-                // planLevel:    // Optional
-                // planPrice:    // Optional
-                // creationDate: // Optional
-
-                // You can add any additional account level key-values here,
-                // as long as it's not one of the above reserved names.
-            }
+account: {
+  id:           $account.ID,
+  name:         $account.name,
+  is_paying:    $account.is_paying,
+  monthly_value:$account.monthly_value,
+  planLevel:    $account.subscriptionCost,
+  isFoo:        $account.isFoo
+}
         });
 })('62c5744c-dddc-47a7-59d1-199cc005ac4f');
 </script>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
